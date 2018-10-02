@@ -8,24 +8,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-    <script src="assets/javascript/app.js"></script>
+    <script  src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div class="container">
-        <h1 class=favPlanets>PLANETS ARE COOL</h1>
+        <h1 class="planetFavorites">PLANETS ARE COOL</h1>
         <!-- Planet buttons go here -->
-        <div id=planetbuttons>
-            <button class="planet" data-name="Venus">Venus</button>
-            <button class="planet" data-name="Jupiter">Jupiter</button>
-            <button class="planet" data-name="Saturn">Saturn</button>
-            <button class="planet" data-name="Neptune">Neptune</button>
+        <div id="planetbuttons">
+            <button class="planet" data-name="Planet Venus">Venus</button>
+            <button class="planet" data-name="Planet Jupiter">Jupiter</button>
+            <button class="planet" data-name="Planet Saturn">Saturn</button>
+            <button class="planet" data-name="Planet Neptune">Neptune</button>
         </div>
+
+        <div id="planet-input-box">
+            <form id="planet-form">
+                <label for="planet-input">Add Planet</label>
+                <input type="text" id="planet-input">
+                <br>
+                <!-- Button triggers new planet to be added -->
+                <input id="add-planet" type="submit" value="Submit">
+
+            </form>
+        </div>
+        <div id="planet-view"></div>
     </div>
-
-
-    <script
-    src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <div class="footer">        
+  ©Copyright 2018 Chris Hibberd
+    </div>
+    
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
 
 </html>
