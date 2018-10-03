@@ -12,8 +12,13 @@ html {
     font-size: 70px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: rgb(83, 49, 77);
-    text-align: center;    
+    text-align: center; 
+}
 
+label {
+    font-size: 25px;
+    color: rgb(83, 49, 77);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .footer {
