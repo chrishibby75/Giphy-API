@@ -31,7 +31,7 @@ $(document).ready(function () {
                 var planetImage = $('<img>');
                 planetImage.attr('src', results[i].images.fixed_height_still.url);
                 planetImage.attr('data-still', results[i].images.fixed_height_still.url);
-                planetImage.attr('data-animate', results[i].images.fixed_height_still.url);
+                planetImage.attr('data-animate', results[i].images.fixed_height.url);
                 planetImage.attr('data-state', 'still');
                 planetImage.addclass('planetImage');
 
@@ -41,6 +41,7 @@ $(document).ready(function () {
                 //display planet image
                 planetDiv.prepend(planetImage);
                 $('#planet-view').prepend(planetDiv);
+            }
 
           //if the variable state is equal to 'still',
           // then update the src attribute of this image to it's data-animate value,
@@ -48,7 +49,7 @@ $(document).ready(function () {
           // If state does not equal 'still', then update the src attribute of this
           // image to it's data-animate value and update the data-state attribute to 'still'
 
-            }
+            
 
             $('.planetImage').on('click', function() {
                 var state = $(this).attr('data-state');
