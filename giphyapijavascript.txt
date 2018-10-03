@@ -12,7 +12,7 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET"
         }).then(function (response) {
-            $("#planetview").empty();
+            $("#planet-view").empty();
 
             var results = response.data;
 
@@ -40,7 +40,7 @@ $(document).ready(function () {
 
                 //display planet image
                 planetDiv.prepend(planetImage);
-                $('#planetview').prepend(planetDiv);
+                $('#planet-view').prepend(planetDiv);
             }
 
           //if the variable state is equal to 'still',
@@ -66,7 +66,6 @@ $(document).ready(function () {
         });
     }
         function renderButtons() {
-
             $('#planetbuttons').empty();
 
             for(var i = 0; i < planets.length; i++) {
