@@ -12,83 +12,83 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET"
         }).then(function (response) {
-            $("#planetview").empty();
-
+            $("#planet-view").empty();
             var results = response.data;
 
-            console.log(response);
+
 
             for (var i = 0; i < results.length; i++) {
-                var planetDiv = $('<div>');
+                var planetDiv = $("<div>");
                 planetDiv.addClass("planetpictures");
 
                 //create the element to have the rating displayed
                 var rating = results[i].rating;
 
-                var p = $('<h2>').text("Rating: " + rating);
+                var p = $("<h2>").text("Rating: " + rating);
 
                 //allow image to still or animate
-                var planetImage = $('<img>');
-                planetImage.attr('src', results[i].images.fixed_height_still.url);
-                planetImage.attr('data-still', results[i].images.fixed_height_still.url);
-                planetImage.attr('data-animate', results[i].images.fixed_height.url);
-                planetImage.attr('data-state', 'still');
-                planetImage.addclass('planetImage');
+                var planetImage = $("<img>");
+                planetImage.attr("src", results[i].images.fixed_height_still.url);
+                planetImage.attr("data-still", results[i].images.fixed_height_still.url);
+                planetImage.attr("data-animate", results[i].images.fixed_height.url);
+                planetImage.attr("data-state", "still");
+                planetImage.addclass("planetImage");
 
                 //display rating
                 planetDiv.prepend(p);
 
                 //display planet image
                 planetDiv.prepend(planetImage);
-                $('#planetview').prepend(planetDiv);
+                $("#planet-view").prepend(planetDiv);
             }
 
-          //if the variable state is equal to 'still',
-          // then update the src attribute of this image to it's data-animate value,
-          // and update the data-state attribute to 'animate'.
-          // If state does not equal 'still', then update the src attribute of this
-          // image to it's data-animate value and update the data-state attribute to 'still'
+            //if the variable state is equal to 'still',
+            // then update the src attribute of this image to it's data-animate value,
+            // and update the data-state attribute to 'animate'.
+            // If state does not equal 'still', then update the src attribute of this
+            // image to it's data-animate value and update the data-state attribute to 'still'
 
-            
 
-            $('.planetImage').on('click', function() {
-                var state = $(this).attr('data-state');
+
+            $(".planetImage").on("click", function () {
+                var state = $(this).attr("data-state");
                 console.log(state);
 
-                if(state === 'still') {
-                    $(this).attr('src', $(this).attr('data-animate'));
-                    $(this).attr('data-state', 'animate');                    
+                if (state === "still") {
+                    $(this).attr("src", $(this).attr("data-animate"));
+                    $(this).attr("data-state", "animate");
                 } else {
-                    $(this).attr('src', $(this).attr('data-still'));
-                    $(this).attr('data-state', 'still');
+                    $(this).attr("src", $(this).attr("data-still"));
+                    $(this).attr("data-state", "still");
                 }
             });
         });
     }
-        function renderButtons() {
+    function renderButtons() {
+        $("#planetbuttons").empty();
 
-            $('#planetbuttons').empty();
-
-            for(var i = 0; i < planets.length; i++) {
-                var planetAdd = $('<button>');
-                planetAdd.addClass('planet');
-                planetAdd.attr('data-name', planets[i]);
-                planetAdd.text(planets[i]);
-                $('#planetbuttons').append(planetAdd);
-            }
+        for (var i = 0; i < planets.length; i++) {
+            var planetAdd = $("<button>");
+            planetAdd.addClass("planet");
+            planetAdd.attr("data-name", planets[i]);
+            planetAdd.text(planets[i]);
+            $("#planetbuttons").append(planetAdd);
         }
+    }
 
-        $('#add-planet').on('click', function(event) {
-            event.preventDefault();
+    $("#add-planet").on("click", function (event) {
+        event.preventDefault();
 
-            var planet = $('#planet-input').val().trim();
-            planets.push(planet);
-            renderButtons();
-        });
-        $(document).on('click', '.planet', displayPlanet);
+        var planet = $("#planet-input").val().trim();
+        planets.push(planet);
         renderButtons();
+    });
+    
+    $(document).on("click", ".planet", displayPlanet);
 
-        
+    renderButtons();
+
+
 
 
 });
