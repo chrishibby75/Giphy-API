@@ -5,19 +5,21 @@ $(document).ready(function () {
     //displayPlanet function re-renders the HTML to display the right content
     function displayPlanet() {
         var planet = $(this).attr("data-name");
-        var queryURL = "https://api.giphy.com/v1/gifs/random?q=" + planet + "&api_key=zh6QW2fMxH8GVD6ovNNSRkE6W9DLAcri&limit=10";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + planet + "&api_key=zh6QW2fMxH8GVD6ovNNSRkE6W9DLAcri";
         console.log(queryURL);
         //create AJAX call for the planet button being clicked
         $.ajax({
             url: queryURL,
             method: "GET"
         }).then(function (response) {
-            $("#planet-view").empty();
+            //$("#planet-view").empty();
             var results = response.data;
+            console.log(response);
 
 
 
             for (var i = 0; i < results.length; i++) {
+                console.log(results[i])
                 var planetDiv = $("<div>");
                 planetDiv.addClass("planetpictures");
 
@@ -32,7 +34,7 @@ $(document).ready(function () {
                 planetImage.attr("data-still", results[i].images.fixed_height_still.url);
                 planetImage.attr("data-animate", results[i].images.fixed_height.url);
                 planetImage.attr("data-state", "still");
-                planetImage.addclass("planetImage");
+                planetImage.addClass("planetImage");
 
                 //display rating
                 planetDiv.prepend(p);
@@ -83,7 +85,7 @@ $(document).ready(function () {
         planets.push(planet);
         renderButtons();
     });
-    
+
     $(document).on("click", ".planet", displayPlanet);
 
     renderButtons();
