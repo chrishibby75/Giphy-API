@@ -1,10 +1,10 @@
 body {
     background-image: url(./milkyway.jpg);
-    
-}
-    
+    background-size: cover;    
+    text-align: center;    
+}    
 
-html {
+html, body {
     height: 100%;
 }
 
@@ -21,6 +21,19 @@ label {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+#planet-input {
+    margin-left: 5px;
+}
+
+button {    
+    margin: 3px;
+    font-size: 25px;    
+    border: none;
+    cursor: pointer;
+    opacity: .6;
+    font-weight: bold;
+}
+
 .footer {
 	background: rgb(83, 49, 77);
     padding: 5px 0;
@@ -31,4 +44,10 @@ label {
     left: 0;
     bottom: 0;
     position: fixed;
+}
+
+button:hover {
+    border: 2px sold white;
+    background: black;
+    color: rgb(83, 49, 77);
 }
