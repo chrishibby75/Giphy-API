@@ -5,7 +5,7 @@ $(document).ready(function () {
     //displayPlanet function re-renders the HTML to display the right content
     function displayPlanet() {
         var planet = $(this).attr("data-name");
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + planet + "&api_key=zh6QW2fMxH8GVD6ovNNSRkE6W9DLAcri";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + planet + "&api_key=zh6QW2fMxH8GVD6ovNNSRkE6W9DLAcri&limit=10";
         console.log(queryURL);
         //create AJAX call for the planet button being clicked
         $.ajax({
